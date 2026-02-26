@@ -1,7 +1,7 @@
 import random
 
 money = 100
-
+## Reach 3193894 to win, goodluck
 while money < 3193894:
  ask = input("black or red:")
 
@@ -29,3 +29,4 @@ while money < 3193894:
      
      money = money - bet
      print(f"lose {money}")
+
