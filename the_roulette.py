@@ -5,9 +5,11 @@ money = 100
 while money < 3193894:
  ask = input("black or red:")
 
- print(f"you have {money}")
+ print(f"you have $:{money}")
  try:
   bet = int(input("how much to bet:"))
+  if bet > money:
+    continue
  except ValueError:
     print("trying to break the game huh?")
     continue
@@ -24,9 +26,8 @@ while money < 3193894:
  if ask == roll:
 
      money = money + bet
-     print(f"win {money}") 
+     print(f"win -${bet} total:$:{money}") 
  else: 
      
      money = money - bet
-     print(f"lose {money}")
-
+     print(f"lose -${bet} total:$:{money}")
