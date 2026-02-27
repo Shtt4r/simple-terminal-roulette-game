@@ -26,8 +26,9 @@ while money < 3193894:
  if ask == roll:
 
      money = money + bet
-     print(f"win -${bet} total:$:{money}") 
+     print(f"win +${bet} total:$:{money}") 
  else: 
      
      money = money - bet
      print(f"lose -${bet} total:$:{money}")
+
