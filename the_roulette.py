@@ -1,17 +1,39 @@
 import random
 
-money = 100
-## Reach 3193894 to win, goodluck
-while money < 3193894:
- ask = input("black or red:")
+import winsound
 
+money = 100
+print("-----------------------------------------")
+print("simple terminal roulette game (strgv1.2)")
+print("-----------------------------------------")
+print("type red/black to bet on a colour")
+print("-----------------------------------------")
+
+valid = ["red", "black"]
+while money > 0:
+ print("--------------------")
+ ask = input("black or red:").lower()
+ print("--------------------")
+ if ask not in valid:
+    print("-----------------------")
+    print("! not inside red/black")
+    print("-----------------------")
+    winsound.PlaySound("sound//invalid.wav", winsound.SND_FILENAME)
+    continue
+ print("--------------------")
  print(f"you have $:{money}")
+ print("--------------------")
  try:
   bet = int(input("how much to bet:"))
+  print("--------------------")
   if bet > money:
+    print("! Thats... too much")
+    winsound.PlaySound("sound//invalid.wav", winsound.SND_FILENAME)
     continue
  except ValueError:
-    print("trying to break the game huh?")
+    print("--------------------")
+    print("! trying to break the game huh?")
+    winsound.PlaySound("sound//invalid.wav", winsound.SND_FILENAME)
     continue
 
 
@@ -32,3 +54,9 @@ while money < 3193894:
      money = money - bet
      print(f"lose -${bet} total:$:{money}")
 
+     if money == 0:
+        print("----")
+        print("debt")
+        print("----")
+        winsound.PlaySound("sound//invalid.wav", winsound.SND_FILENAME)
+        break
